@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "58108c82-0cf3-42a9-ae16-c73393fe358d",
+		"name": "SpyCatAgency",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14822754"
+	},
+	"item": [
+		{
+			"name": "Cats",
+			"item": [
+				{
+					"name": "Get all cats",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/cats"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cat by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cats/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cats",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add cat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"THE American Bobtail\",\r\n    \"yearsOfExperience\": 5,\r\n    \"breed\": \"American Bobtail\",\r\n    \"salary\": 100011\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/cats"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cat",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"THE CAT\",\r\n    \"yearsOfExperience\": 11,\r\n    \"breed\": \"Abyssinian\",\r\n    \"salary\": 100000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cats/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cats",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cat salary",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"salary\": 1000001\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cats/:id/salary",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cats",
+								":id",
+								"salary"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete cat",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cats/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cats",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign mission on cat",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"missionId\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cats/:id/assign-mission",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cats",
+								":id",
+								"assign-mission"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "ID if Cat in which mission he should be assigned"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "missions",
+			"item": [
+				{
+					"name": "Create mission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"targets\": [\r\n        {\r\n            \"name\": \"Potato\",\r\n            \"country\": \"Ukraine\",\r\n            \"notes\": \"NOte test\"\r\n        },\r\n        {\r\n            \"name\": \"Potato2\",\r\n            \"country\": \"Ukraine\",\r\n            \"notes\": \"NOte test2\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/mission"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete mission",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "/mission/:id",
+							"path": [
+								"mission",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "02"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get mission by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mission/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"mission",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Target to mission",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Potato Add by Id 2\",\r\n    \"country\": \"Ukraine\",\r\n    \"notes\": \"NOte test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/mission/:id/add-target",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"mission",
+								":id",
+								"add-target"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Missions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/mission"
+					},
+					"response": []
+				},
+				{
+					"name": "Complete mission",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mission/:id/complete",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"mission",
+								":id",
+								"complete"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Target notes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"notes\": \"NOte test changed note bla bla bla\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/target/:id/notes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"target",
+								":id",
+								"notes"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Target",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/target/:id/complete",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"target",
+								":id",
+								"complete"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get target by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/target/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"target",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete target",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/target/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"target",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000"
+		}
+	]
+}

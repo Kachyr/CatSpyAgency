@@ -1,0 +1,26 @@
+### Setup
+
+1. **Clone the repository:**
+
+2. **Install dependencies:**
+   go mod tidy
+3. **DB and its credentials**
+   Make sure you have clean SQL table (preferably PostgresQL).
+   Add your DB credentials in .env file.
+   Example:
+   DB_READ_URL="host=localhost user=UserLogin password=123123 dbname=SpyCatAgencyDB port=5432 sslmode=disable"
+   DB_WRITE_URL="host=localhost user=UserLogin password=123123 dbname=SpyCatAgencyDB port=5432 sslmode=disable"
+
+### Build and Run
+
+    -For running this commands you need to have makefile installed, else you need to run generic Golang commands
+
+    To run app in dev mode simply execute command `make runDev`. For running this command you need to have [CompileDaemon](https://github.com/githubnemo/CompileDaemon) installed (`go get github.com/githubnemo/CompileDaemon`)
+
+    -To build and run `make build`
+
+    -To run executable by itself run `make run`
+
+    -To clear artifacts run `make clear`
+
+### Postman collection is attached to repository
